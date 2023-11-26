@@ -1,0 +1,16 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    border: 1px solid;
+    display: flex;
+    flex-direction: column;
+    width: 90vw;
+    height: 90vh;
+    margin: 1rem auto;
+    justify-content: center;
+    align-items: center;
+}
