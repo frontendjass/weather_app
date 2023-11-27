@@ -1,32 +1,46 @@
-async function getWeather() {
+async function searchWeather() {
     try {
-        let city = 'Toronto';
+        // Get the user-entered city from the input field
+        const cityInput = document.getElementById('cityInput');
+        const city = cityInput.value;
+
+        // Validate if a city is entered
+        if (!city) {
+            throw new Error('Please enter a city');
+        }
+
+        // Use the entered city for the API request
         const apiKey = '898abb700b92fcac851ac5da0d449e50';
-        const apiURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
+        const weatherApiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
 
-        const tempReading = document.getElementById('temperature');
-        const cityName = document.getElementById('cityname');
+        // Get references to HTML elements
+        const temperatureElement = document.getElementById('temperature');
+        const cityNameElement = document.getElementById('cityname');
 
-        const response = await fetch(apiURL);
+        // Fetch weather data from the OpenWeatherMap API
+        const response = await fetch(weatherApiUrl);
 
+        // Check if the response is successful
         if (!response.ok) {
             throw new Error('Error fetching weather data');
         }
 
-        const data = await response.json();
+        // Parse the JSON data from the response
+        const weatherData = await response.json();
 
         // Extract temperature from the data
-        const temp = data.main.temp;
+        const temperature = weatherData.main.temp;
 
         // Update the HTML to display the temperature
-        tempReading.innerText = `${temp.toFixed()}F`; // Adjust the unit as needed
-        cityName.innerText = `${city}`;
+        temperatureElement.innerText = `${temperature.toFixed()}°F`; // Adjust the unit as needed
+        cityNameElement.innerText = city;
     } catch (error) {
-        console.error('Error:', error.message);
         // Handle errors and update the temperature display accordingly
-        tempReading.innerText = 'Error fetching weather data';
+        console.error('Error:', error.message);
+        temperatureElement.innerText = 'Error fetching weather data';
     }
 }
 
+
 // Call the function to fetch and display weather data
-getWeather();
+fetchAndDisplayWeather();
