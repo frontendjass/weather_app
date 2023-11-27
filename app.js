@@ -16,6 +16,8 @@ async function searchWeather() {
         // Get references to HTML elements
         const temperatureElement = document.getElementById('temperature');
         const cityNameElement = document.getElementById('cityname');
+        const weatherInfoElement = document.getElementById('weatherInfo');
+        const main = document.getElementById('main');
 
         // Fetch weather data from the OpenWeatherMap API
         const response = await fetch(weatherApiUrl);
@@ -34,6 +36,10 @@ async function searchWeather() {
         // Update the HTML to display the temperature
         temperatureElement.innerText = `${temperature.toFixed()}°F`; // Adjust the unit as needed
         cityNameElement.innerText = city;
+        main.innerText = weatherData.weather[0].description;
+
+        // Convert the JSON object to a string and display it
+        weatherInfoElement.innerText = JSON.stringify(weatherData, null, 2);
     } catch (error) {
         // Handle errors and update the temperature display accordingly
         console.error('Error:', error.message);
@@ -41,6 +47,6 @@ async function searchWeather() {
     }
 }
 
-
 // Call the function to fetch and display weather data
-fetchAndDisplayWeather();
+searchWeather();
+

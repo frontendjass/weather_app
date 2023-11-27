@@ -7,12 +7,46 @@
 
 body {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
+    background: linear-gradient(to bottom, skyblue, lavender);
 }
 
 .container {
     border: 1px solid;
     padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 20rem;
+    height: 15rem;
+    justify-content: space-between;
+}
+
+h1 {
+    font-size: 2rem;
+}
+#cityname {
+    font-size: 2rem;
+    color: whitesmoke;
+}
+#main {
+    position: absolute;
+    right: -5%;
+    top: 25%;
+    transform: rotate(90deg);
+    z-index: 10;
+}
+button {
+
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+.debug {
+    max-height: 400px;
 }
