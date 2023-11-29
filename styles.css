@@ -2,51 +2,33 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-size: 16px;
-}
-
-body {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background: linear-gradient(to bottom, skyblue, lavender);
+    border: 1px solid;
 }
 
 .container {
-    border: 1px solid;
-    padding: 1rem;
     display: flex;
     flex-direction: column;
-    position: relative;
-    width: 20rem;
-    height: 15rem;
     justify-content: space-between;
+    align-items: center;
+    height: 100vh;
+    width: 400px;
+    padding: 2.5rem;
 }
 
-h1 {
-    font-size: 2rem;
-}
-#cityname {
-    font-size: 2rem;
-    color: whitesmoke;
-}
-#main {
+#search {
     position: absolute;
-    right: -5%;
-    top: 25%;
-    transform: rotate(90deg);
-    z-index: 10;
-}
-button {
-
 }
 
-button:hover {
-    cursor: pointer;
+#time {
+    margin-top: 2.5rem;
 }
 
-.debug {
-    max-height: 400px;
+
+#weather h1 {
+    font-size: 5rem;
+}
+
+#bottom-info {
+    display: flex;
+
 }
