@@ -8,6 +8,10 @@
 </head>
 <body>
 <div class="container">
+    <form id="search" action="">
+        <input type="text" id="cityInput" placeholder="Enter City">
+        <button onClick="searchWeather()">Search</button>
+    </form>
     <div id="time">
         <p>Monday</p>
         <p>December, 7th</p>
@@ -16,12 +20,12 @@
     <div id="weather">
         <h1>70 F</h1>
         <h2>Toronto</h2>
-        <div>
-            <p>Cloudy</p>
-            <p>Humidity: 60%</p>
-            <p>Wind Speed:</p>
-        </div>
     </div>
+    <div id="bottom-info">
+        <p>Cloudy</p>
+        <p>Humidity: 60%</p>
+        <p>Wind Speed: 100 MPH</p>
+    </div>    
 </div>
 </body>
 </html>
